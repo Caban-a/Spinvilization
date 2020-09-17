@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<techs>
+
+ <activity id="Leisure">
+  <produces>Hum</produces>
+ </activity>
+
+ <activity id="Effigy">
+  <consumes>Clay</consumes>
+  <produces>Effigy</produces>
+ </activity>
+
+ <activity id="Explore Forest">
+  <produces>Fruit</produces>
+  <produces>Game</produces>
+  <produces>Mushroom</produces>
+  <produces>Wood</produces>
+ </activity>
+
+ <activity id="Explore Mountain">
+  <produces>Clay</produces>
+  <produces>Rock</produces>
+ </activity>
+
+ <activity id="Altar">
+  <consumes>Effigy</consumes>
+  <alterCost q="-1" combo="Ritual|Tradition">any</alterCost>
+  <produces>Altar</produces>
+ </activity>
+
+ <activity id="Arrow">
+  <produces>Arrow</produces>
+ </activity>
+
+ <activity id="Burn Wood">
+  <consumes>Wood</consumes>
+  <produces>Fire</produces>
+  <produces>Coal</produces>
+ </activity>
+
+ <activity id="Explore Cave">
+  <produces>Clay</produces>
+  <produces>Shelter</produces>
+ </activity>
+
+ <activity id="Flint">
+  <consumes>Rock</consumes>
+  <produces>Flint</produces>
+ </activity>
+
+ <activity id="Hammerstone">
+  <consumes>Rock</consumes>
+  <produces>Hammerstone</produces>
+ </activity>
+
+ <innovation id="Menhir">
+  <describe>At the end of the year, before eating, if {happyGood}  &lt; 0, +1 {happyGood}</describe>
+ </innovation>
+
+ <innovation id="Fur">
+  <consumes descriptionOnTop="descriptionOnTop" describe="Idle at the beginning of the year&#xA;Activates after a hunt">HiddenHuntFurProduct</consumes>
+  <produces>Fur</produces>
+ </innovation>
+
+ <innovation id="Ritual">
+  <alterCost q="1" combo="Ritual">Hum</alterCost>
+  <bonus q="1" describe="+1 culture">maxHappiness</bonus>
+ </innovation>
+
+ <activity id="Shaman">
+  <consumes>Hum</consumes>
+  <produces>Speech</produces>
+ </activity>
+
+ <activity id="Spear">
+  <consumes>Wood</consumes>
+  <produces>Spear</produces>
+ </activity>
+
+ <innovation id="Totem">
+  <alterCost q="1" combo="Totem">Wood</alterCost>
+  <describe>Gain +1 {foodStorage} per Hunt</describe>
+ </innovation>
+
+ <activity id="Bricks">
+  <consumes>Clay</consumes>
+  <produces>Masonry</produces>
+ </activity>
+
+ <activity id="Burn Coal">
+  <consumes>Coal</consumes>
+  <produces>Fire</produces>
+ </activity>
+
+ <activity id="Cobblestone">
+  <consumes>Rock</consumes>
+  <produces>Masonry</produces>
+ </activity>
+
+ <activity id="Drum">
+  <consumes>Fur</consumes>
+  <consumes>Wood</consumes>
+  <produces>Drum</produces>
+ </activity>
+
+ <activity id="Farm">
+  <alterCost q="1" combo="Farm">Fence</alterCost>
+  <produces>Crop</produces>
+ </activity>
+
+ <activity id="Fence">
+  <consumes>Wood</consumes>
+  <produces>Fence</produces>
+ </activity>
+
+ <innovation id="Granary">
+ <bonus q="1">maxFood</bonus>
+  <describe>{Jar} prevents any {foodStorage} from being stolen by enemies</describe>
+ </innovation>
+
+ <activity id="Grove">
+  <produces>Fruit</produces>
+  <bonus q="1" describe="{Fruit} gives +1 {foodStorage}">fruitValue</bonus>
+ </activity>
+
+ <activity id="Hall of Champions">
+  <consumes descriptionOnTop="descriptionOnTop" describe="Idle at the beginning of the year&#xA;Activates after an enemy is vanquished">HiddenVanquishProduct</consumes>
+  <produces>Command</produces>
+  <bonus q="-3" describe="-3 population threshold">popThreshold</bonus>
+ </activity>
+
+ <activity id="House">
+  <consumes>Masonry</consumes>
+  <consumes>Tile</consumes>
+  <produces>Shelter</produces>
+  <bonus q="-4" describe="-4 population threshold">popThreshold</bonus>
+ </activity>
+
+ <activity id="Igloo">
+  <consumes>Frost</consumes>
+  <produces>Frost</produces>
+  <produces>Shelter</produces>
+ </activity>
+
+ <activity id="Manual Press">
+  <consumes>Wood</consumes>
+  <consumes>Jar</consumes>
+  <produces>Press</produces>
+ </activity>
+
+ <activity id="Oracle">
+  <produces>Altar</produces>
+  <produces>Speech</produces>
+ </activity>
+
+ <innovation id="Oven">
+  <consumes>Fire</consumes>
+  <alterCost q="-1" combo="any">Fire</alterCost>
+ </innovation>
+
+ <activity id="Pottery">
+  <consumes>Clay</consumes>
+  <produces>Jar</produces>
+ </activity>
+
+ <innovation id="Ram Press">
+  <consumes>Sheep</consumes>
+  <produces>Press</produces>
+  <produces>Press</produces>
+ </innovation>
+
+ <activity id="Sheep Herding">
+  <produces>Sheep</produces>
+ </activity>
+
+ <activity id="Sheepskin">
+  <consumes>Sheep</consumes>
+  <produces>Sheep</produces>
+  <produces>Fur</produces>
+ </activity>
+
+ <innovation id="Shrine">
+  <consumes>Altar</consumes>
+  <describe>If there is excess {foodStorage} before eating, 1{foodStorage} is converted to {happyGood} (*[rebound_shrine()] if {happyGood} &lt; 0)</describe>
+  </innovation>
+
+ <activity id="Slow Recovery">
+  <consumes>Press</consumes>
+  <consumes>Mushroom</consumes>
+  <consumes>Fur</consumes>
+  <describe>If {popBusy} in Slow Recovery becomes idle{popIdle} or leaves, they are lost&#xA;At end of year, {popBusy} here is fully healed and goes to Leisure{popLeisure}</describe>
+ </activity>
+
+ <innovation id="Solar Dial">
+  <consumes>Drought</consumes>
+  <produces>Drought</produces>
+  <produces>Ephemeris</produces>
+ </innovation>
+
+ <activity id="Tent">
+  <consumes>Fur</consumes>
+  <produces>Shelter</produces>
+ </activity>
+
+ <activity id="Tile">
+  <consumes>Clay</consumes>
+  <produces>Tile</produces>
+ </activity>
+
+ <innovation id="Torch Light">
+  <consumes>Fire</consumes>
+  <bonus q="1" describe="+1 action each year">actions</bonus>
+ </innovation>
+
+ <innovation id="Tradition">
+  <alterCost q="1" combo="Tradition">Speech</alterCost>
+  <bonus q="2" describe="+2 culture">maxHappiness</bonus>
+ </innovation>
+
+ <activity id="Village Council">
+  <consumes>Speech</consumes>
+  <produces>Command</produces>
+  <bonus q="1" describe="Stepping to Command costs 1 happiness{happyGood}">stepToCommandHappinessCost</bonus>  
+ </activity>
+
+ <activity id="Ambush">
+  <describe>{Forest} and {Mountain} gain the ability to neutralize and vanquish all enemies on the wheel&#xA;When that ability is used, 1 Ambush is abandoned</describe>
+ </activity>
+
+ <activity id="Architecture">
+  <alterCost q="1" combo="Architecture">Masonry</alterCost>
+  <alterCost q="1" combo="Architecture">Wood</alterCost>
+  <consumes>Masonry</consumes>
+  <consumes>Shelter</consumes>
+  <produces>Tower</produces>
+ </activity>
+
+ <activity id="Astrology">
+  <consumes>Ephemeris</consumes>
+  <bonus q="1" describe="+1 rebound (bonus to some combos when {happyGood} &lt; 0)">rebound</bonus>
+  <produces>Command</produces>
+ </activity>
+
+ <activity id="Baking">
+  <consumes>Press</consumes>
+  <consumes>Mushroom</consumes>
+  <consumes>needs 2 Food producted by Harvest to activate</consumes>
+  <produces>??</produces>
+ </activity>
+
+ <innovation id="Collect Fat">
+  <consumes descriptionOnTop="descriptionOnTop" describe="Idle at the beginning of the year&#xA;Activates after a Hunt">HiddenHuntFatProduct</consumes>
+  <consumes>Jar</consumes>
+  <produces>Oil</produces>
+ </innovation>
+
+ <innovation id="Fruit Oil">
+  <consumes>Fruit</consumes>
+  <consumes>Fruit</consumes>
+  <consumes>Press</consumes>
+  <produces>Oil</produces>
+ </innovation>
+
+ <activity id="Garrison">
+  <consumes>Arrow</consumes>
+  <describe>{Tower} gains the ability to neutralize and vanquish 2 enemies on the side reels</describe>
+ </activity>
+
+ <activity id="Hammer">
+  <consumes>Wood</consumes>
+  <consumes>Iron</consumes>
+  <produces>Hammer</produces>
+ </activity>
+
+ <activity id="Horse Riding">
+  <produces>Horse</produces>
+ </activity>
+
+ <activity id="Ironworking">
+  <consumes>Iron</consumes>
+  <produces>Pick</produces>
+ </activity>
+
+ <innovation id="Justice">
+  <alterCost q="1" combo="Justice">Command</alterCost>
+  <bonus q="3" describe="+3 culture">maxHappiness</bonus>
+ </innovation>
+
+ <activity id="Livestock Fat">
+  <consumes>Sheep</consumes>
+  <consumes>Jar</consumes>
+  <produces>Oil</produces>
+ </activity>
+
+ <activity id="Melting">
+  <consumes>Rock</consumes>
+  <produces>Iron</produces>
+ </activity>
+
+ <activity id="Observatory">
+  <produces>Ephemeris</produces>
+ </activity>
+
+ <innovation id="Oil Lamp">
+  <consumes>Oil</consumes>
+  <bonus q="2" describe="+2 actions each year">actions</bonus>
+ </innovation>
+
+ <activity id="Parchment">
+  <consumes>Fur</consumes>
+  <produces>Writing</produces>
+ </activity>
+
+ <activity id="Pictograms">
+  <consumes>Clay</consumes>
+  <consumes>Oil</consumes>
+  <produces>Writing</produces>
+  <bonus q="1" describe="+1 culture for each different symbol in the roster&#xA;Can not step away from Writing">pictogramsMaxHappiness</bonus>
+ </activity>
+
+ <activity id="Senate">
+  <consumes>Speech</consumes>
+  <produces>Command</produces>
+  <cantAbandon>Ritual|Tradition|Justice|Senate</cantAbandon>
+  <describe>You can't abandon Ritual, Tradition, Justice or Senate</describe>
+ </activity>
+
+ <innovation id="Seed Oil">
+  <consumes descriptionOnTop="descriptionOnTop" describe="Idle at the beginning of the year&#xA;Consumes 3 harvested {Crop} to activate">HiddenHarvestProduct</consumes>
+  <consumes>Press</consumes>
+  <produces>Oil</produces>
+ </innovation>
+
+ <activity id="Sculpture">
+  <consumes>Rock</consumes>
+  <produces>Statue</produces>
+ </activity>
+
+ <activity id="Tablet">
+  <consumes>Tile</consumes>
+  <produces>Writing</produces>
+ </activity>
+
+ <activity id="Talking Drum">
+  <consumes>Drum</consumes>
+  <produces>Drum</produces>
+  <produces>Speech</produces>
+ </activity>
+
+ 
+ 
+ <innovation id="setupInuit">
+  <consumes>Drought</consumes>
+  <produces>Frost</produces>
+  <produces>Frost</produces>
+ </innovation>
+ 
+ <innovation id="yearly2Game">
+  <produces>Game</produces>
+  <produces>Game</produces>
+ </innovation>
+ 
+ <innovation id="yearlyFire">
+  <produces>Fire</produces>
+ </innovation>
+ 
+ <innovation id="yearlyFur">
+  <produces>Fur</produces>
+ </innovation>
+ 
+ <innovation id="yearlySpeech">
+  <produces>Speech</produces>
+ </innovation>
+ 
+ <innovation id="yearlyCrop">
+  <produces>Crop</produces>
+ </innovation>
+ 
+ <innovation id="yearlyAntiCrop">
+  <consumes>Crop</consumes>
+ </innovation>
+
+ <innovation id="yearlyAntiTiger">
+  <consumes>Tiger</consumes>
+ </innovation>
+
+ <innovation id="yearlyHuntProduct">
+  <produces>HiddenHuntFurProduct</produces>
+  <produces>HiddenHuntFatProduct</produces>
+ </innovation>
+
+ <innovation id="yearlyHarvestProduct">
+  <produces>HiddenHarvestProduct</produces>
+ </innovation>
+ 
+ <innovation id="yearlyVanquishProduct">
+  <produces>HiddenVanquishProduct</produces>
+ </innovation>
+ 
+ <innovation id="yearlyTillingBonus">
+  <alterCost q="-1" combo="Harvest Barley|Harvest Maize">Crop</alterCost>
+ </innovation>
+
+  <innovation id="yearlyWarlordJusticeBonus">
+  <alterCost q="-2" combo="Justice">Command</alterCost>
+ </innovation>
+
+</techs>
+

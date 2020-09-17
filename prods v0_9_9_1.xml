@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<prods>
+
+<land id="Forest" icon_id="1">
+</land>
+
+<land id="Mountain" icon_id="2">
+</land>
+
+
+
+<weather id="Storm" icon_id="3">
+ <modify q="-1">happiness</modify>
+</weather>
+
+<weather id="Frost" icon_id="4">
+ <modify q="-2">food</modify>
+ <modify q="-2">happiness</modify>
+</weather>
+
+<weather id="Drought" icon_id="5">
+ <modify q="-1">food</modify> 
+</weather>
+
+
+
+<prod id="Clay" icon_id="6">
+</prod>
+
+<prod id="Effigy" icon_id="7">
+ <modify q="1">yearlyMaxHappiness</modify>
+ <modify q="1">happiness</modify>
+</prod>
+
+<prod id="Fruit" icon_id="8">
+ <special>spFruit</special> 
+</prod>
+
+<prod id="Game" icon_id="9">
+</prod>
+
+<prod id="Hum" icon_id="10">
+</prod>
+
+<prod id="Mushroom" icon_id="11">
+</prod>
+
+<prod id="Rock" icon_id="12">
+</prod>
+
+<prod id="Wood" icon_id="13" comboReplacedBy="Spear|Fence">
+</prod>
+
+<prod id="Altar" icon_id="14">
+</prod>
+
+<prod id="Arrow" icon_id="15">
+ <vanquish q="2" loc="sides">enemy</vanquish>
+</prod>
+
+<prod id="Coal" icon_id="16">
+</prod>
+
+<prod id="Flint" icon_id="17">
+ <vanquish q="1" loc="adjacent">enemy</vanquish>
+</prod>
+
+<prod id="Fire" icon_id="18">
+ <neutralize q="1" loc="wheel">Frost|Wolf|Tiger|Bear|War Elephant</neutralize>
+</prod>
+
+<prod id="Fur" icon_id="19">
+ <neutralize q="1" loc="adjacent">Frost|Storm</neutralize>
+</prod>
+
+<prod id="Hammerstone" icon_id="20" comboReplacedBy="Hammer">
+ <neutralize q="1" loc="adj_right">enemy</neutralize>
+ <vanquish q="1" loc="adj_right">enemy</vanquish>
+</prod>
+
+<prod id="Spear" icon_id="21">
+ <vanquish q="1" loc="sides">enemy</vanquish>
+ <describe>Can replace {Wood} in combos</describe>
+</prod>
+
+<prod id="Speech" icon_id="22">
+</prod>
+
+<prod id="Drum" icon_id="23">
+ <neutralize q="1" loc="wheel">enemy</neutralize>
+</prod>
+
+<prod id="Ephemeris" icon_id="24">
+</prod>
+
+<prod id="Fence" icon_id="25">
+ <neutralize q="1" loc="sides">enemy</neutralize>
+ <describe>Can replace {Wood} in combos</describe>
+</prod>
+
+<prod id="Jar" icon_id="27">
+ <modify q="2">yearlyMaxFood</modify>
+</prod>
+
+<prod id="Masonry" icon_id="28">
+ <neutralize q="2" loc="adjacent">enemy</neutralize>
+</prod>
+
+<prod id="Press" icon_id="42">
+</prod>
+
+<prod id="Sheep" icon_id="29">
+ <modify q="3">food</modify>
+</prod>
+
+<prod id="Shelter" icon_id="30">
+ <modify q="-1">yearlyPopThreshold</modify>
+</prod>
+
+<prod id="Tile" icon_id="31">
+</prod>
+
+<prod id="Crop" icon_id="32">
+ <special>spCrop</special>
+</prod>
+
+<prod id="Command" icon_id="34">
+ <modify q="-2" describe="-2 population{popGlobal} threshold for the year">yearlyPopThreshold</modify>
+</prod>
+
+<prod id="Hammer" icon_id="35">
+ <neutralize q="1" loc="adjacent">enemy</neutralize>
+ <vanquish q="1" loc="adjacent">enemy</vanquish>
+ <describe>Can replace {Hammerstone} in combos</describe>
+</prod>
+
+<prod id="Iron" icon_id="37">
+</prod>
+
+<prod id="Oil" icon_id="38">
+</prod>
+
+<prod id="Pick" icon_id="39">
+</prod>
+
+<prod id="Statue" icon_id="40">
+ <modify q="2">yearlyMaxHappiness</modify>
+ <modify q="2">happiness</modify>
+</prod>
+
+<prod id="Tower" icon_id="41" stepCost="stepOutFree">
+ <describe>Stepping away from {Tower} is free</describe>
+</prod>
+
+<prod id="Writing" icon_id="43" stepCost="noStepOutIfPictograms">
+ <modify q="1" describe="+1 max innovations{innovation} for the year">yearlyMaxInnovations</modify>
+</prod>
+
+
+
+
+<prod id="HiddenHuntFurProduct" icon_id="0" hidden="hidden">
+</prod>
+
+<prod id="HiddenHuntFatProduct" icon_id="0" hidden="hidden">
+</prod>
+
+<prod id="HiddenHarvestProduct" icon_id="0" hidden="hidden">
+</prod>
+
+<prod id="HiddenVanquishProduct" icon_id="0" hidden="hidden">
+</prod>
+
+
+<enemy id="Wolf" icon_id="64" age="1" danger="3">
+ <devour>-2</devour>
+</enemy>
+
+<enemy id="Tiger" icon_id="68" age="1" danger="5">
+ <losePop>any</losePop>
+ <tech yearly="yearly" describe="Then, {Tiger} hides for the year" log="Tiger goes into hiding">yearlyAntiTiger</tech>
+</enemy>
+
+<enemy id="Outcast" icon_id="66" age="2" danger="4">
+ <modify q="-3" steal="steal">food</modify>
+</enemy>
+
+<enemy id="Bear" icon_id="65" age="2" danger="5">
+ <devour>-5</devour>
+</enemy>
+
+<enemy id="Raider" icon_id="67" age="3" danger="7" noLock="noLock" trample="trample">
+ <modify q="-2" steal="steal">food</modify>
+ <losePop>Leisure</losePop>
+</enemy>
+
+<enemy id="Warlord" icon_id="70" age="4" danger="8">
+ <losePop>any</losePop>
+ <addList elem="Raider" min="1" max="1">enemies</addList>
+</enemy>
+
+<enemy id="War Elephant" icon_id="69" age="4" danger="10" stepCost="noStepOut" trample="trample">
+ <modify q="-6" steal="steal">food</modify>
+ <describe>Can not be stepped away from</describe>
+</enemy>
+
+
+
+<misc id="spinning" icon_id="114">
+</misc>
+
+<misc id="left" icon_id="91">
+</misc>
+
+<misc id="right" icon_id="92">
+</misc>
+
+<misc id="only" icon_id="103">
+</misc>
+
+<misc id="none" icon_id="116">
+</misc>
+
+<misc id="arrowGreenUp" icon_id="80">
+</misc>
+
+<misc id="arrowLightGreenUp" icon_id="81">
+</misc>
+
+<misc id="arrowLightBlueUp" icon_id="82">
+</misc>
+
+<misc id="arrowBlueUp" icon_id="83">
+</misc>
+
+<misc id="arrowGreyUp" icon_id="84">
+</misc>
+
+<misc id="arrowRedUp" icon_id="85">
+</misc>
+
+<misc id="arrowGreenDown" icon_id="96">
+</misc>
+
+<misc id="arrowLightGreenDown" icon_id="97">
+</misc>
+
+<misc id="arrowLightBlueDown" icon_id="98">
+</misc>
+
+<misc id="arrowBlueDown" icon_id="99">
+</misc>
+
+<misc id="arrowGreyDown" icon_id="100">
+</misc>
+
+<misc id="arrowRedDown" icon_id="101">
+</misc>
+
+<misc id="circle" icon_id="107">
+</misc>
+
+<misc id="popBusy" icon_id="118">
+</misc>
+
+<misc id="popIdle" icon_id="120">
+</misc>
+
+<misc id="popLeisure" icon_id="121">
+</misc>
+
+<misc id="popGlobal" icon_id="122">
+</misc>
+
+<misc id="foodStorage" icon_id="119">
+</misc>
+
+<misc id="innovation" icon_id="90">
+</misc>
+
+<misc id="innovationOff" icon_id="89">
+</misc>
+
+<misc id="cheatPlus" icon_id="129">
+</misc>
+
+<misc id="cheatPlusClick" icon_id="128">
+</misc>
+
+<misc id="cheatMinusClick" icon_id="130">
+</misc>
+
+<misc id="cheatMinus" icon_id="131">
+</misc>
+
+<misc id="happyGood" icon_id="117">
+</misc>
+
+<misc id="happyNeutral" icon_id="112">
+</misc>
+
+<misc id="happyBad" icon_id="104">
+</misc>
+
+<misc id="slideButton" icon_id="132">
+</misc>
+
+<misc id="slideButtonOn" icon_id="133">
+</misc>
+
+<misc id="startLine" icon_id="108">
+</misc>
+
+<misc id="octagon_dead" icon_id="109">
+</misc>
+
+<misc id="octagon_live" icon_id="110">
+</misc>
+
+<misc id="octagon_unknown" icon_id="111">
+</misc>
+
+<misc id="trophy" icon_id="124">
+</misc>
+
+<misc id="octagon_done" icon_id="126">
+</misc>
+
+<misc id="scroll" icon_id="135">
+</misc>
+
+<misc id="eye" icon_id="136">
+</misc>
+
+<misc id="cross_thin" icon_id="137">
+</misc>
+
+<misc id="cross" icon_id="138">
+</misc>
+
+<misc id="stun" icon_id="139">
+</misc>
+
+<misc id="cog" icon_id="140">
+</misc>
+
+<misc id="options_corner" icon_id="141">
+</misc>
+
+<misc id="crossbox_unticked" icon_id="142">
+</misc>
+
+<misc id="crossbox_ticked" icon_id="143">
+</misc>
+
+<misc id="recycle" icon_id="144">
+</misc>
+
+<misc id="recycle2" icon_id="145">
+</misc>
+
+<misc id="recycle3" icon_id="146">
+</misc>
+
+<misc id="recycle4" icon_id="147">
+</misc>
+
+<misc id="recycle5" icon_id="148">
+</misc>
+
+<misc id="recycle6" icon_id="149">
+</misc>
+
+<misc id="recycle7" icon_id="150">
+</misc>
+
+<misc id="recycle8" icon_id="151">
+</misc>
+
+<misc id="tree_spring" icon_id="152">
+</misc>
+
+<misc id="tree_summer" icon_id="153">
+</misc>
+
+<misc id="tree_fall" icon_id="154">
+</misc>
+
+<misc id="tree_winter" icon_id="155">
+</misc>
+
+<misc id="tree_bloom1" icon_id="156">
+</misc>
+
+<misc id="tree_bloom2" icon_id="157">
+</misc>
+
+<misc id="help_border" icon_id="158">
+</misc>
+
+<tribe id="normal mode" icon_id="160" setup="NORMAL1">
+</tribe>
+
+<tribe id="sentinelese tribe" icon_id="161" setup="EASY2_SENTINELESE">
+</tribe>
+
+<tribe id="hard mode" icon_id="162" setup="HARD1">
+</tribe>
+
+<tribe id="inuit tribe" icon_id="163" setup="HARD2_INUIT">
+</tribe>
+
+<tribe id="mayan tribe" icon_id="164" setup="HARD3_MAYANS">
+</tribe>
+
+<tribe id="palawa tribe" icon_id="165" setup="NORMAL2_PALAWA">
+</tribe>
+
+<tribe id="very Hard mode" icon_id="166" setup="VERY_HARD1">
+</tribe>
+
+<tribe id="anangu tribe" icon_id="167" setup="VERY_HARD2_ANANGU">
+</tribe>
+
+<tribe id="sabine tribe" icon_id="168" setup="VERY_HARD3_SABINES">
+</tribe>
+
+<save id="autosave" icon_id="176">
+</save>
+
+<misc id="codex" icon_id="177">
+</misc>
+
+<tribe id="easy mode" icon_id="178" setup="EASY1">
+</tribe>
+
+</prods>

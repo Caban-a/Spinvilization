@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<combos>
+
+<age id="1">
+
+ <combo id="New Population">
+  <effect>
+   <special>spNewPop</special>
+  </effect>
+ </combo>
+
+ <combo id="Effigy">
+  <quantity q="1">Clay</quantity>
+  <effect>
+   <tech>Effigy</tech>
+  </effect>
+ </combo>
+
+ <combo id="Explore Forest">
+  <quantity q="1">Forest</quantity>
+  <effect>
+   <tech>Explore Forest</tech>
+  </effect>
+ </combo>
+
+ <combo id="Explore Mountain">
+  <quantity q="1">Mountain</quantity>
+  <effect>
+   <tech>Explore Mountain</tech>
+  </effect>
+ </combo>
+
+ <combo id="Hammerstone">
+  <quantity q="1">Rock</quantity>
+  <effect>
+   <levelUp>2</levelUp>
+   <tech>Hammerstone</tech>
+  </effect>
+ </combo>
+
+ <combo id="Harmony">
+  <only>Hum</only>
+  <effect>
+   <modify q="5">happiness</modify>
+  </effect>
+ </combo>
+
+ <combo id="Rabbit Hunt">
+  <quantity q="1">Game</quantity>
+  <none>Hum</none>
+  <none>Speech</none>
+  <effect>
+   <modify q="2" hunt="hunt">food</modify>
+  </effect>
+ </combo>
+
+ <combo id="Spear">
+  <quantity q="1">Wood</quantity>
+  <effect>
+   <levelUp>2</levelUp>
+   <tech>Spear</tech>
+  </effect>
+ </combo>
+
+ <combo id="Tune">
+  <quantity q="1">Hum</quantity>
+  <effect>
+   <modify q="1">happiness</modify>
+  </effect>
+ </combo>
+
+ <combo id="Vision">
+  <quantity q="1">Mushroom</quantity>
+  <effect>
+   <special>spVision</special>
+  </effect>
+ </combo>
+
+</age>
+
+<age id="2">
+
+ <combo id="Altar">
+  <quantity q="1">Effigy</quantity>
+  <quantity q="1">Rock</quantity>
+  <effect>
+   <tech>Altar</tech>
+  </effect>
+ </combo>
+
+ <combo id="Arrow">
+  <sequence>Spear</sequence>
+  <sequence>Flint</sequence>
+  <effect>
+   <tech>Arrow</tech>
+  </effect>
+ </combo>
+
+ <combo id="Bird Hunt">
+  <quantity q="1">Arrow</quantity>
+  <quantity q="1">Forest</quantity>
+  <none>Hum</none>
+  <none>Speech</none>
+  <effect>
+   <special>spBirdHunt</special>
+  </effect>
+ </combo>
+
+ <combo id="Boar Hunt">
+  <quantity q="1">Game</quantity>
+  <quantity q="1">Spear</quantity>
+  <none>Hum</none>
+  <none>Speech</none>
+  <effect>
+   <modify q="5" hunt="hunt">food</modify>
+  </effect>
+ </combo>
+
+ <combo id="Bonfire">
+  <sequence>Fire</sequence>
+  <only>Drum</only>
+  <only>Hum</only>
+  <effect>
+   <modify q="8">happiness</modify>
+  </effect>
+ </combo>
+
+ <combo id="Charcoal">
+  <quantity q="1">Fire</quantity>
+  <quantity q="1">Wood</quantity>
+  <effect>
+   <tech>Burn Wood</tech>
+  </effect>
+ </combo>
+
+ <combo id="Deer Hunt">
+  <quantity q="1">Game</quantity>
+  <quantity q="1">Arrow</quantity>
+  <none>Hum</none>
+  <none>Speech</none>
+  <effect>
+   <modify q="7" hunt="hunt">food</modify>
+  </effect>
+ </combo>
+
+ <combo id="Ember Guardian">
+  <sequence>Storm</sequence>
+  <sequence>Wood</sequence>
+  <effect>
+   <tech>Burn Wood</tech>
+  </effect>
+ </combo>
+
+ <combo id="Explore Cave">
+  <sequence>Fire</sequence>
+  <sequence>Mountain</sequence>
+  <effect>
+   <levelUp>3</levelUp>
+   <tech>Explore Cave</tech>
+  </effect>
+ </combo>
+
+ <combo id="Fireside Story">
+  <sequence>Fire</sequence>
+  <sequence>Speech</sequence>
+  <effect>
+   <special>spFireside</special>
+  </effect>
+ </combo>
+
+ <combo id="Flint">
+  <sequence>Hammerstone</sequence>
+  <sequence>Rock</sequence>
+  <effect>
+   <tech>Flint</tech>
+  </effect>
+ </combo>
+
+ <combo id="Folksong">
+  <quantity q="1">Hum</quantity>
+  <quantity q="1">Speech</quantity>
+  <none>Command</none>
+  <none>Writing</none>
+  <effect>
+   <special>spFolksong</special>
+  </effect>
+ </combo>
+
+ <combo id="Igloo">
+  <sequence>Frost</sequence>
+  <sequence>Frost</sequence>
+  <effect>
+   <levelUp>3</levelUp>
+   <tech>Igloo</tech>
+  </effect>
+ </combo>
+
+ <combo id="Menhir">
+  <sequence>Rock</sequence>
+  <sequence>Rock</sequence>
+  <effect>
+   <tech>Menhir</tech>
+  </effect>
+ </combo>
+
+ <combo id="Mourning">
+  <sequence>Hum</sequence>
+  <sequence>Hum</sequence>
+  <effect>
+   <modify q="2" rebound="rebound">happiness</modify>
+  </effect>
+ </combo>
+
+ <combo id="Pelts">
+  <left>Game</left>
+  <right>Game</right>
+  <effect>
+   <tech>Fur</tech>
+  </effect>
+ </combo>
+
+ <combo id="Ritual">
+  <quantity q="1">Hum</quantity>
+  <effect>
+   <tech>Ritual</tech>
+  </effect>
+ </combo>
+
+ <combo id="Shaman">
+  <quantity q="1">Mushroom</quantity>
+  <quantity q="1">Hum</quantity>
+  <effect>
+   <tech>Shaman</tech>
+  </effect>
+ </combo>
+
+ <combo id="Skinning">
+  <sequence>Flint</sequence>
+  <sequence>Game</sequence>
+  <effect>
+   <tech>Fur</tech>
+  </effect>
+ </combo>
+
+ <combo id="Sparkle">
+  <sequence>Flint</sequence>
+  <sequence>Flint</sequence>
+  <effect>
+   <tech yearly="yearly" describe="Produce {Fire} for the year" log="Someone managed to make sparks ! The frail fire will last for the year">yearlyFire</tech>
+  </effect>
+ </combo>
+
+ <combo id="Stone Throw">
+  <left>Rock</left>
+  <effect>
+   <vanquish q="1" loc="wheel">enemy</vanquish>
+  </effect>
+ </combo>
+
+ <combo id="Tent">
+  <left>Fur</left>
+  <right>Fur</right>
+  <effect>
+   <levelUp>3</levelUp>
+   <tech>Tent</tech>
+  </effect>
+ </combo>
+
+ <combo id="Totem">
+  <quantity q="1">Effigy</quantity>
+  <quantity q="1">Wood</quantity>
+  <effect>
+   <tech>Totem</tech>
+  </effect>
+ </combo>
+
+</age>
+
+<age id="3">
+ <combo id="Ambush">
+  <quantity q="1">Arrow</quantity>
+  <only>Forest</only>
+  <only>Mountain</only>
+  <effect>
+   <tech>Ambush</tech>
+  </effect>
+ </combo>
+
+ <combo id="Solar Eclipse">
+  <sequence>Ephemeris</sequence>
+  <sequence>Drought</sequence>
+  <effect>
+   <levelUp>4</levelUp>
+   <tech>Astrology</tech>
+  </effect>
+ </combo>
+
+ <combo id="Bricks">
+  <quantity q="2">Fire</quantity>
+  <quantity q="2">Clay</quantity>
+  <effect>
+   <tech>Bricks</tech>
+  </effect>
+ </combo>
+
+ <combo id="Buffalo Hunt">
+  <quantity q="2">Game</quantity>
+  <quantity q="1">Spear</quantity>
+  <none>Hum</none>
+  <none>Speech</none>
+  <effect>
+   <modify q="15" hunt="hunt">food</modify>
+  </effect>
+ </combo>
+
+ <combo id="Burial Mound">
+  <only>Arrow</only>
+  <only>Effigy</only>
+  <only>Flint</only>
+  <only>Fur</only>
+  <only>Jar</only>
+  <only>Spear</only>
+  <effect>
+   <modify q="4" rebound="rebound">happiness</modify>
+  </effect>
+ </combo>
+
+ <combo id="Burn Coal">
+  <quantity q="2">Fire</quantity>
+  <quantity q="1">Coal</quantity>
+  <effect>
+   <tech>Burn Coal</tech>
+  </effect>
+ </combo>
+
+ <combo id="Cataplasm">
+  <sequence>Press</sequence>
+  <sequence>Mushroom</sequence>
+  <sequence>Fur</sequence>
+  <requires q="1" describe="Lost population{popGlobal} this year">popKilled</requires>
+  <effect>
+   <modify q="-1" describe="Recover 1 population">popKilled</modify>
+   <tech newPopIn="newPopIn" describe="That population goes into the Slow Recovery activity">Slow Recovery</tech>
+  </effect>
+ </combo>
+
+ <combo id="Cobblestone">
+  <quantity q="1">Hammerstone</quantity>
+  <quantity q="2">Rock</quantity>
+  <effect>
+   <tech>Cobblestone</tech>
+  </effect>
+ </combo>
+
+ <combo id="Drum">
+  <sequence>Wood</sequence>
+  <sequence>Fur</sequence>
+  <sequence>Wood</sequence>
+  <effect>
+   <tech>Drum</tech>
+  </effect>
+ </combo>
+
+ <combo id="Farm">
+  <quantity q="1">Shelter</quantity>
+  <quantity q="1">Fence</quantity>
+  <effect>
+   <tech>Farm</tech>
+  </effect>
+ </combo>
+
+ <combo id="Fence">
+  <sequence>Wood</sequence>
+  <sequence>Wood</sequence>
+  <effect>
+   <tech>Fence</tech>
+  </effect>
+ </combo>
+
+ <combo id="Granary">
+  <quantity q="1">Shelter</quantity>
+  <none>Bear</none>
+  <none>Game</none>
+  <none>Sheep</none>
+  <none>Tiger</none>
+  <none>War Elephant</none>
+  <none>Wolf</none>
+  <effect>
+   <tech>Granary</tech>
+  </effect>
+ </combo>
+
+ <combo id="Grove">
+  <left>Fence</left>
+  <right>Fence</right>
+  <only>Fruit</only>
+  <effect>
+   <tech>Grove</tech>
+  </effect>
+ </combo>
+
+ <combo id="Hall of Champions">
+  <sequence>Shelter</sequence>
+  <sequence>Shelter</sequence>
+  <requires describe="Vanquished a whole group of enemies this year">groupDefeated</requires>
+  <effect>
+   <modify q="4">happiness</modify>
+   <levelUp>4</levelUp>
+   <tech>Hall of Champions</tech>
+  </effect>
+ </combo>
+
+ <combo id="Harvest Barley">
+  <quantity q="2">Crop</quantity>
+  <none>Drought</none>
+  <none>Frost</none>
+  <none>Storm</none>
+  <effect>
+   <special>spHarvestBarley</special>
+  </effect>
+ </combo>
+
+ <combo id="House">
+  <quantity q="2">Masonry</quantity>
+  <quantity q="1">Tile</quantity>
+  <effect>
+   <tech>House</tech>
+  </effect>
+ </combo>
+
+ <combo id="Oracle">
+  <quantity q="1">Mountain</quantity>
+  <quantity q="1">Storm</quantity>
+  <only>Hum</only>
+  <effect>
+   <tech>Oracle</tech>
+  </effect>
+ </combo>
+
+ <combo id="Oven">
+  <sequence>Masonry</sequence>
+  <sequence>Fire</sequence>
+  <sequence>Masonry</sequence>
+  <effect>
+   <tech>Oven</tech>
+  </effect>
+ </combo>
+
+ <combo id="Pestle and Mortar">
+  <sequence>Wood</sequence>
+  <sequence>Jar</sequence>
+  <effect>
+   <tech>Manual Press</tech>
+  </effect>
+ </combo>
+ 
+ <combo id="Pottery">
+  <left>Clay</left>
+  <right>Clay</right>
+  <effect>
+   <tech>Pottery</tech>
+  </effect>
+ </combo>
+
+ <combo id="Sheep Taming">
+  <sequence>Spear</sequence>
+  <sequence>Game</sequence>
+  <sequence>Fence</sequence>
+  <effect>
+   <tech>Sheep Herding</tech>
+  </effect>
+ </combo>
+
+ <combo id="Shepherd">
+  <quantity q="2">Sheep</quantity>
+  <only>Fence</only>
+  <only>Forest</only>
+  <only>Mountain</only>
+  <effect>
+   <tech>Sheep Herding</tech>
+  </effect>
+ </combo>
+
+ <combo id="Shrine">
+  <sequence>Fence</sequence>
+  <sequence>Altar</sequence>
+  <sequence>Fence</sequence>
+  <effect>
+   <tech>Shrine</tech>
+  </effect>
+ </combo>
+
+ <combo id="Ram Press">
+  <sequence>Sheep</sequence>
+  <sequence>Wood</sequence>
+  <sequence>Sheep</sequence>
+  <effect>
+   <tech>Ram Press</tech>
+  </effect>
+ </combo>
+
+ <combo id="Root Juice">
+  <quantity q="1">Press</quantity>
+  <effect>
+   <special>spRootJuice</special>
+  </effect>
+ </combo>
+
+ <combo id="Sanctuary">
+  <left>Shelter</left>
+  <quantity q="1">Altar</quantity>
+  <effect>
+   <special>spSanctuary</special>
+  </effect>
+ </combo>
+
+ <combo id="Solar Dial">
+  <left>Rock</left>
+  <right>Rock</right>
+  <quantity q="1">Altar</quantity>
+  <only>Drought</only>
+  <effect>
+   <tech>Solar Dial</tech>
+  </effect>
+ </combo>
+
+ <combo id="Sheepskin">
+  <left>Sheep</left>
+  <right>Sheep</right>
+  <effect>
+   <tech>Sheepskin</tech>
+  </effect>
+ </combo>
+
+ <combo id="Summer Ceremony">
+  <quantity q="1">Ephemeris</quantity>
+  <quantity q="1">Speech</quantity>
+  <quantity q="1">Crop</quantity>
+  <none>Frost</none>
+  <effect>
+   <special>spSummerCeremony</special>
+  </effect>
+ </combo>
+
+ <combo id="Tile">
+  <quantity q="3">Fire</quantity>
+  <quantity q="1">Clay</quantity>
+  <effect>
+   <tech>Tile</tech>
+  </effect>
+ </combo>
+
+ <combo id="Torch Light">
+  <right>Fire</right>
+  <effect>
+   <tech>Torch Light</tech>
+  </effect>
+ </combo>
+
+ <combo id="Tradition">
+  <quantity q="1">Speech</quantity>
+  <effect>
+   <tech>Tradition</tech>
+  </effect>
+ </combo>
+
+ <combo id="Village Council">
+  <quantity q="1">Shelter</quantity>
+  <only>Speech</only>
+  <effect>
+   <levelUp>4</levelUp>
+   <tech>Village Council</tech>
+  </effect>
+ </combo>
+
+ <combo id="Winter Ceremony">
+  <quantity q="1">Ephemeris</quantity>
+  <quantity q="1">Drum</quantity>
+  <quantity q="1">Hum</quantity>
+  <none>Drought</none>
+  <effect>
+   <special>spWinterCeremony</special>
+  </effect>
+ </combo>
+
+</age>
+
+<age id="4">
+
+ <combo id="Architecture">
+  <quantity q="1">Masonry</quantity>
+  <quantity q="1">Shelter</quantity>
+  <quantity q="0">Wood</quantity>
+  <effect>
+   <tech>Architecture</tech>
+  </effect>
+ </combo>
+
+ <combo id="Fruit Oil">
+  <left>Press</left>
+  <right>Press</right>
+  <quantity q="2">Fruit</quantity>
+  <effect>
+   <tech>Fruit Oil</tech>
+  </effect>
+ </combo>
+
+ <combo id="Collect Fat">
+  <quantity q="1">Game</quantity>
+  <quantity q="1">Jar</quantity>
+  <effect>
+   <tech>Collect Fat</tech>
+  </effect>
+ </combo>
+
+ <combo id="Garrison">
+  <right>Tower</right>
+  <quantity q="1">Arrow</quantity>
+  <effect>
+   <tech>Garrison</tech>
+  </effect>
+ </combo>
+
+ <combo id="Hammer">
+  <sequence>Wood</sequence>
+  <sequence>Iron</sequence>
+  <effect>
+   <tech>Hammer</tech>
+  </effect>
+ </combo>
+
+ <combo id="Harvest Maize">
+  <quantity q="4">Crop</quantity>
+  <none>Drought</none>
+  <none>Frost</none>
+  <none>Storm</none>
+  <effect>
+   <special>spHarvestMaize</special>
+  </effect>
+ </combo>
+
+ <combo id="Ironworking">
+  <sequence>Hammerstone</sequence>
+  <sequence>Iron</sequence>
+  <sequence>Rock</sequence>
+  <effect>
+   <tech>Ironworking</tech>
+  </effect>
+ </combo>
+
+ <combo id="Justice">
+  <quantity q="1">Command</quantity>
+  <effect>
+   <modify q="-3">happiness</modify>
+   <tech>Justice</tech>
+  </effect>
+ </combo>
+
+ <combo id="Livestock Fat">
+  <quantity q="1">Sheep</quantity>
+  <quantity q="1">Jar</quantity>
+  <effect>
+   <tech>Livestock Fat</tech>
+  </effect>
+ </combo>
+
+ <combo id="Melting">
+  <quantity q="5">Fire</quantity>
+  <quantity q="1">Rock</quantity>
+  <effect>
+   <tech>Melting</tech>
+  </effect>
+ </combo>
+
+ <combo id="Observatory">
+  <sequence>Mountain</sequence>
+  <sequence>Tower</sequence>
+  <none>Frost</none>
+  <none>Storm</none>
+  <effect>
+   <tech>Observatory</tech>
+  </effect>
+ </combo>
+
+ <combo id="Oil Lamp">
+  <quantity q="1">Jar</quantity>
+  <quantity q="1">Oil</quantity>
+  <quantity q="1">Fire</quantity>
+  <effect>
+   <tech>Oil Lamp</tech>
+  </effect>
+ </combo>
+
+ <combo id="Parchment">
+  <sequence>Coal</sequence>
+  <sequence>Fur</sequence>
+  <only>Speech</only>
+  <only>Command</only>
+  <only>Ephemeris</only>
+  <effect>
+   <levelUp>5</levelUp>
+   <tech>Parchment</tech>
+  </effect>
+ </combo>
+
+ <combo id="Pictograms">
+  <quantity q="1">Clay</quantity>
+  <quantity q="1">Oil</quantity>
+  <only>Speech</only>
+  <only>Command</only>
+  <only>Ephemeris</only>
+  <effect>
+   <levelUp>5</levelUp>
+   <tech>Pictograms</tech>
+  </effect>
+ </combo>
+
+ <combo id="Seed Oil">
+  <left>Press</left>
+  <right>Press</right>
+  <quantity q="2">Crop</quantity>
+  <effect>
+   <tech>Seed Oil</tech>
+  </effect>
+ </combo>
+
+ <combo id="Senate">
+  <left>Speech</left>
+  <right>Speech</right>
+  <quantity q="1">Shelter</quantity>
+  <effect>
+   <tech>Senate</tech>
+  </effect>
+ </combo>
+
+ <combo id="Sculpture">
+  <sequence>Hammer</sequence>
+  <sequence>Pick</sequence>
+  <sequence>Rock</sequence>
+  <effect>
+   <tech>Sculpture</tech>
+  </effect>
+ </combo>
+
+ <combo id="Tablet">
+  <sequence>Pick</sequence>
+  <sequence>Tile</sequence>
+  <only>Speech</only>
+  <only>Command</only>
+  <only>Ephemeris</only>
+  <effect>
+   <levelUp>5</levelUp>
+   <tech>Tablet</tech>
+  </effect>
+ </combo>
+
+ <combo id="Talking Drum">
+  <left>Drum</left>
+  <right>Drum</right>
+  <only>Forest</only>
+  <only>Mountain</only>
+  <effect>
+   <tech>Talking Drum</tech>
+  </effect>
+ </combo>
+
+ <combo id="Tilling">
+  <quantity q="1">Pick</quantity>
+  <quantity q="1">Crop</quantity>
+  <effect>
+   <tech yearly="yearly" describe="Harvesting costs -1 {Crop} this year" log="Tilling makes the crops grow better. (Harvesting costs -1 {Crop} this year)">yearlyTillingBonus</tech>
+  </effect>
+ </combo>
+
+</age>
+
+</combos>
+

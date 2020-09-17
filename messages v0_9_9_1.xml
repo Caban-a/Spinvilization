@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<messages>
+
+ <tip id="tribe_only">[CENTER_TEXT][capitalizedTribeName()] {[gameState.setup.tribe]}
+
+
+ [gameState.setup.detail]
+ 
+ 
+ No scoring in this mode<br/>
+ </tip>
+
+ <tip id="tribe_and_score">[CENTER_TEXT][capitalizedTribeName()] {[gameState.setup.tribe]}
+
+
+ [gameState.setup.detail]
+
+ 
+ Score : [gameState.score]
+ Best score : [currentBestScore]
+ Score multiplier : [difficultyRatio()]
+
+ The score increases at the end of the year, depending on the remaining population, the Age, and the year.
+ There is a bonus when enemies appear.<br/>
+ </tip>
+
+ <tip id="food">[CENTER_TEXT]FOOD {foodStorage}
+
+
+ The reserves of food of your tribe.
+
+ At the end of the year, your population eats {foodStorage}.
+ If there is not enough {foodStorage}, happiness {happyGood} is lost instead.
+ After eating, food that cannot be stored is wasted.
+
+ Food : [gameState.food]
+ Base food storage : [maxFood(true)]
+ Bonus to food storage this year : [gameState.yearlyMaxFood]
+ Food storage : [maxFood()]
+ Eaten at end of year : [popTotal()]<br/>
+ </tip>
+
+ <tip id="happiness">[CENTER_TEXT]HAPPINESS {happyGood}
+
+
+ The level of happiness in your tribe.
+
+ If {happyGood} is high enough, you can recruit new population.
+
+ If {happyGood} &lt; 0 (shown like this {happyBad}), you will lose 1 population at the end of the year.
+
+ Happiness : [gameState.happiness]
+ Needed to recruit : [newPopThreshold()]
+ Base culture : [maxHappiness(true)]
+ Bonus to culture this year : [gameState.yearlyMaxHappiness]
+ Culture (max happiness) : [maxHappiness()]<br/>
+ </tip>
+
+ <tip id="population">[CENTER_TEXT]POPULATION {popGlobal}
+
+
+ The population of your tribe.
+ 
+ When happiness is high enough, you can recruit people with the 'New Population' combo.
+ If happiness &lt; 0, you will lose 1 population at the end of the year.
+ 
+ Click on an activity and 1 population will abandon it and go back to leisure.
+
+  {popLeisure}Population in leisure : [countTech(true,false,true,false,false)]
+ {popBusy} Active population : [countTech(true,false,false,true,false)]
+  {popIdle}Idle population : [countTech(true,false,false,false,true)]
+ {popGlobal} Total population : [popTotal()]
+ Food {foodStorage} consumed at end of year : [popTotal()]
+ {happyGood} Happiness needed for recruiting : [newPopThreshold()]<br/>
+ </tip>
+ 
+ <tip id="innovation">[CENTER_TEXT]INNOVATIONS {innovation}
+
+
+ The innovations discovered by your tribe.
+ Innovations often consume Symbols and produce new Symbols with different abilities.
+ Your tribe starts with Leisure{popLeisure} which produces the {Hum} symbol and does not count as an innovation.
+
+ Active Innovations : [countTech(true,true,false,true,false)]
+ Idle Innovations : [countTech(true,true,false,false,true)]
+ Total : [countTech(true,true,false,true,true)]
+ Max Innovations : [maxInnovations()]<br/>
+ </tip>
+
+ <tip id="roster">[CENTER_TEXT]ROSTER
+
+
+ Here are the symbols that will show up on the wheel.
+ Mouse over a symbol to see its name and what it does.
+
+ </tip>
+ 
+ <tip id="weather">Changes randomly every year</tip>
+ <tip id="land">There are always 1 Forest and 1 Mountain in the roster</tip>
+ <tip id="enemy">Vanquish all enemies for a reward</tip>
+ <tip id="enemy_no_reward">No reward available for now</tip>
+ 
+
+ 
+ <enemies id="Wolf">
+  <encounter>A pack of hungry wolves attack your tribe !</encounter>
+  <victory>You have defeated the pack leaders !
+The remnants of the wolf pack flee with their tails between their legs.<br/>
+  </victory>
+  <foodReward min="3" max="6"/>
+  <happinessReward min="2" max="4"/>
+  <choice>Meat eaters gone ! More meat for us !<br/>
+   <modify q="2" describe="hunting gives +2 Food this year">yearlyHuntFood</modify>
+  </choice>
+  <choice>Harvest the dead wolves' pelts.<br/>
+   <tech yearly="yearly" describe="Produce {Fur} this year" log="The pelts of the defeated wolves provide fur for the year">yearlyFur</tech>
+  </choice>
+  </enemies>
+
+
+ <enemies id="Tiger">
+  <encounter>Your tribe is on the hunting grounds of tigers !</encounter>
+  <victory>The tigers are all gone. Probably. You think.</victory>
+  <foodReward min="5" max="10"/>
+  <happinessReward min="1" max="2"/>
+  <choice>Celebrate !<br/>
+   <modify q="2">yearlyMaxHappiness</modify>
+  </choice>
+  <choice>The forest should be totally safe now.<br/>
+   <tech describe="Gain the Explore Forest activity">Explore Forest</tech>
+   <addList elem="Tiger" min="0" max="1">enemies</addList>
+  </choice>
+ </enemies>
+
+
+ <enemies id="Outcast">
+  <encounter>You spot outcasts from another tribe. They are starving and don't seem to be willing or able to communicate.</encounter>
+  <victory>The outcasts scatter before your might.
+Awed by your power, some of them beg to join you.
+It might make the other tribes wary of you.<br/>
+  </victory>
+  <happinessReward min="1" max="2"/>
+  <choice>Accept.<br/>
+   <special>spNewPop</special>
+   <modify q="5">yearlyPopThreshold</modify>
+  </choice>
+  <choice>Decline.</choice>
+ </enemies>
+
+
+ <enemies id="Bear">
+  <encounter>Your activity has disturbed a group of mighty bears !</encounter>
+  <victory>You have defeated the bears !
+The last one flees to a well-hidden cave.
+Beware ! Its family could still live there.<br/>
+  </victory>
+  <foodReward min="4" max="8"/>
+  <happinessReward min="3" max="6"/>
+  <choice>Follow its trail.<br/>
+   <levelUp>3</levelUp>
+   <tech describe="Gain the Explore Cave activity">Explore Cave</tech>
+   <addList elem="Bear" min="1" max="3">enemies</addList>
+  </choice>
+  <choice>Leave it be.</choice>
+ </enemies>
+
+
+ <enemies id="Raider">
+  <encounter>A horde of humans sitting on the backs of 4-legged beasts attacks you from nowhere !</encounter>
+  <victory>Your tribe felled the rampaging raiders !
+Their strange beasts have scattered not far.</victory>
+  <happinessReward min="5" max="10"/>
+  <choice>Study the man-beast techniques.<br/>
+   <tech describe="Gain the Arrow activity">Arrow</tech>
+  </choice>
+  <choice>Hunt the strange beasts. It's good to be open to new exotic food.<br/>
+   <tech yearly="yearly" describe="+2{Game} this year" log="Game is abundant this year ! (+2{Game})">yearly2Game</tech>
+  </choice>
+ </enemies>
+
+
+ <enemies id="Warlord">
+  <encounter>A neighbouring tyrant tries to enslave your tribe.</encounter>
+  <victory>Free at last !</victory>
+  <happinessReward min="6" max="12"/>
+  <choice>Focus on making sure that it never happens here.<br/>
+   <tech yearly="yearly" describe="Justice costs -2 {Command} this year" log="People are passionate about improving the justice system ! (Justice costs -2 {Command} this year)">yearlyWarlordJusticeBonus</tech>
+  </choice>
+  <choice>Focus on welcoming those who flee the tyranny.<br/>
+   <modify q="-10">yearlyPopThreshold</modify>
+  </choice>
+ </enemies>
+
+
+ <enemies id="War Elephant">
+  <encounter>A dreadful army marches through your territory. "Surrender all you have, and your lives shall be spared." No way !</encounter>
+  <victory>The invading army has been repelled ! Their king, impressed with your bravery, promises peace.
+  Some courtisans offer alliances, hoping to enrich their bloodline with the tribe's qualities.
+  </victory>
+  <foodReward min="4" max="8"/>
+  <happinessReward min="2" max="4"/>
+  <choice>Agree to a mutual exchange and learn their foreign ways.<br/>
+   <tech describe="Gain the Tradition innovation">Tradition</tech>
+   <tech yearly="yearly" describe="Produce {Speech} this year" log="This year, the tribesfolk enjoy learning the weird language of the foreigners !">yearlySpeech</tech>
+  </choice>
+  <choice>Take their gifts of peace and tell them off.<br/>
+   <tech describe="Gain the Sheep Herding activity">Sheep Herding</tech>
+  </choice>
+ </enemies>
+ 
+ <levelUp id="level_2" age="Tools" hint="Tent"> Your tribe has discovered how to make tools !
+ 
+ With the right tools, the tribesfolk can copy and even surpass the abilities of the wildlife around them to overcome their own weaknesses.
+ They can even use tools to make better tools, leading to a cascade of potential innovations.
+ Progress is slow and hazardous, but when a member of the tribe invents a new technique, the others are quick to imitate it and pass it on to their children.
+ 
+ Thus begins the journey...<br/> 
+ </levelUp>
+
+ <levelUp id="level_3" age="Settlers" hint="Village Council"> Your tribe has started claiming a land to settle !
+ 
+ As the creations of the craftspeople became more audacious, the tribe often had to leave them behind when they moved to follow game or flee the bad season. They took the habit of making caches of items near their favorite locations, a fish-bearing stream, a generous grove, a well-hidden cave. Some began spending most of the year there, allowing them to build bigger and more ambitious creations.
+ 
+ These creations were solid, seemingly eternal, and through them the tribesfolk felt that they were stamping their mark in the world. They were starting to build for the future...<br/>
+ </levelUp>
+
+ <levelUp id="level_4" age="Power" hint="Parchment"> Your tribe has figured out a way to organize !
+ 
+ The settlement has grown a lot over time. It is no longer possible for people to know everyone else on a personal basis. Small misunderstandings lead to grudges, leading to defiance.
+ In the midst of rising tensions, people spend a lot of time pondering how to prevent disputes from escalating to violence.
+ Step by step, they end up devising a system to defuse conflicts, via custom, confrontation or adjudication.
+ 
+ Now the tribe can grow once more...<br/>
+ </levelUp>
+
+ <levelUp id="level_5" age="History"> Your tribe has developed a written language !
+ 
+ The tribe has used signs for a long time : carvings on a tree to warn of a hidden danger, hunting frescos painted with bare hands, symbols of a secret society...
+ And now the people are beginning to harness the full power of the written words : embedding their voices into eternity. Proud heroes want their deeds set into stone, influent families dream of telling their stories. People put their faith in the written language for disputes and deals, as written words can not be forgotten or forsworn.
+ 
+ Unknowingly, all these people are writing a common, bigger tale : the legend of the tribe itself...<br/>
+ </levelUp>
+ 
+ <tutorial id="tuto1" x="200" y="50" w="400" h="300"> Hi, welcome to Spin-vilization !
+
+ Raise a tribe throughout prehistoric times ! Discover amazing technologies, like fire, or houses ! And don't forget to keep your people fed and happy !
+
+ How to play :
+ Make Combos -> Create Innovations -> Gain new Symbols -> Make more powerful Combos !
+
+ Your goal is to become a thriving nation and discover writing, thus entering History.
+ Good luck !
+   Casual42<br/>
+ </tutorial>
+ 
+ <htp id="htp1">[CENTER_TEXT]HOW TO PLAY
+
+ Welcome to the Spin-vilization help !
+
+ Here you'll learn all that is needed to play the game.
+ You don't need to read it all to play.
+ Feel free to come back to this help at any time by hovering the {help_border} icon.<br/>
+ </htp>
+
+ <htp id="htp2">[CENTER_TEXT] OVERVIEW
+ 
+ Welcome to Spin-vilization !
+ 
+ Raise a tribe throughout prehistoric times ! Discover amazing technologies, like fire, or houses ! But don't forget to keep your people fed and happy. And beware of invaders !
+ 
+ Your goal is to become a thriving nation and discover writing, thus entering History.<br/>
+ </htp>
+
+ <htp id="htp3" font="16px prstart" img="htp3" x="72" y="220">[CENTER_TEXT]YOUR PEOPLE
+ Managing your people is an essential element in Spin-vilization.
+ Each population unit is assigned to an activity.
+ At the beginning, all the people are in Leisure (basically frolicking around all day).
+ You can hover an activity to see what it does. For example, Leisure produces Hum {Hum}.<br/>
+ </htp>
+
+ <htp id="htp4" img="htp4" x="650" y="165">[CENTER_TEXT]THE ROSTER
+ 
+ On the right of the screen is the #ff0000Roster#000000.
+ There you can check everything your people produce.
+ You can see that the 2 populations in Leisure produce 2 {Hum}.
+ There are also other symbols :
+ - 1 Mountain {Mountain}
+ - 1 Forest {Forest}
+ - 1 random weather (here, Storm {Storm})<br/>
+ </htp>
+
+ <htp id="htp5" font="14px prstart" img="htp5" x="85" y="65">[CENTER_TEXT]THE WHEEL OF FATE
+ This is the #ff0000Wheel#000000. It randomly shows symbols from the #ff0000Roster#000000.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ You start the game with only 1 reel, but it won't stay that simple forever...<br/>
+ </htp>
+
+ <htp id="htp6" font="14px prstart" img="htp6" x="110" y="125">[CENTER_TEXT]COMBOS
+ 
+ To progress in the game you need to make combos.
+ Each combo requires some symbols on the #ff0000Wheel#000000.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+  
+ When all the requirements are met, the combo appears green.
+ When something is missing, the combo appears red.<br/>
+ </htp>
+
+ <htp id="htp7" font="14px prstart" img="htp7" x="110" y="120">[CENTER_TEXT]GROWING YOUR TRIBE
+
+ There is one combo that doesn't depend on what is on the #ff0000Wheel#000000 : New Population.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ To perform the New Population combo, you need to have enough Happiness.
+ The more population you have, the more Happiness you need.
+ Happiness is not consumed when doing the New Population combo.<br/>
+ </htp>
+
+ <htp id="htp8" font="14px prstart" img="htp8" x="75" y="155">[CENTER_TEXT]ACTIVITIES
+ 
+ Some combos allow you to start a new activity !
+ Activities require that you dedicate 1 population to them.
+ Most activities let you produce new symbols.
+  
+
+  
+  
+  
+  
+
+
+
+
+  
+  
+  
+ Most activities consume symbols to work.
+ If you do not have those symbols, your people remain idle and the activity has no effect.<br/>
+ </htp>
+
+ <htp id="htp9" img="htp9" x="300" y="125">[CENTER_TEXT]FOOD
+ 
+ Your tribe needs to stock Food for the bad season.
+ 
+ 
+ 
+ 
+ 
+ 
+ You can stock more Food than your Storage capacity.
+ When you have no more Action points, your next Action ends the year.
+ At the end of the year, each population will eat 1 Food, then the Food over the Storage capacity will be lost.
+ If there is not enough Food, people will lose Happiness.<br/>
+ </htp>
+
+ <htp id="htp10" img="htp10" x="300" y="75">[CENTER_TEXT]HAPPINESS
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ It is important to keep your tribe happy.
+ A high level of happiness is needed to recruit new people.
+ Happiness can go below 0, but it is dangerous : at the end of the year, the tribe will lose 1 population at random.<br/>
+ </htp>
+
+ <htp id="htp11" img="htp11" x="300" y="225">[CENTER_TEXT]INNOVATIONS
+
+ The tribe has a limit on the number of innovations it can maintain.
+ If you reach the limit, you will have to abandon an old Innovation when you create a new one.
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Leisure is an exception. It doesn't count as an Innovation.<br/>
+ </htp>
+
+ <htp id="htp12" font="14px prstart" img="htp12" x="150" y="100">[CENTER_TEXT]ADVANCED PLAY - ENEMIES
+ 
+ Enemies are symbols that can harm your tribe.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ In Easy mode, there are no enemies, but in other modes, they can quickly tear away your tribe !
+ Each year, there is a chance new enemies come and replace the older ones.
+ Fortunately, you are not defenceless ! Some combos and symbols allow you to fight back.<br/>
+ </htp>
+
+ <htp id="htp13" img="htp13" x="120" y="120">[CENTER_TEXT]ADVANCED PLAY - NEUTRALIZING
+
+ #ff0000Neutralize#000000 : the enemy has no effect.
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ </htp>
+
+ <htp id="htp14" font="14px prstart" img="htp14" x="40" y="80">[CENTER_TEXT]ADVANCED PLAY - VANQUISHING
+ #ff0000Vanquish#000000 : the enemy is removed from the #ff0000Roster#000000. Beware ! Vanquishing an enemy doesn't prevent their harmful effect !
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Spear{Spear} vanquishes only 1 enemy. The Wolf{Wolf} on the left is vanquished, so the Wolf{Wolf} on the right is untouched.<br/>
+ </htp>
+
+ <htp id="htp15" img="htp15" x="100" y="120">[CENTER_TEXT]ADVANCED PLAY - SUMMARY
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ If you defeat all the enemies, you gain a reward.<br/>
+ </htp>
+
+ <htp id="htp16">[CENTER_TEXT]ADVANCED PLAY - COMBO PHASE
+ 
+ When you perform a Combo, these phases occur :
+ - Combo phase
+ - Tribe phase
+ - Adversity phase
+ - Vanquish phase
+ 
+ Combo phase : the combo takes effect.<br/>
+ </htp>
+
+ <htp id="htp17" img="htp17" x="150" y="200">[CENTER_TEXT]ADVANCED PLAY - TRIBE PHASE
+ 
+ Some of your people's productions have passive effects.
+ You can hover over a symbol in the #ff0000Roster#000000 to see what it does.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Those productions that are on the #ff0000Wheel#000000 and NOT used in the combo take effect during the Tribe phase.
+ In particular, productions that neutralize enemies take effect during the Tribe phase.<br/>
+ </htp>
+
+ <htp id="htp18" img="htp18" x="150" y="250">[CENTER_TEXT]ADVANCED PLAY - ADVERSITY PHASE
+ 
+ Weather and enemies on the #ff0000Wheel#000000 (and NOT used in the combo) take effect during the Adversity phase.<br/>
+ </htp>
+
+ <htp id="htp19" img="htp19" x="150" y="150">[CENTER_TEXT]ADVANCED PLAY - VANQUISH PHASE
+ 
+ Effects that vanquish enemies happen during the Vanquish phase.
+
+
+
+
+
+ 
+ 
+ 
+
+
+ Vanquishing an enemy removes it from the #ff0000Roster#000000 permanently.<br/>
+ </htp>
+
+ <htp id="htp20" img="htp20" x="150" y="250">[CENTER_TEXT]ADVANCED PLAY - EVENT LOG
+ 
+ You can check the log to see what happened recently.<br/>
+ </htp>
+
+ <htp id="htp21">[CENTER_TEXT]ADVANCED PLAY - TIPS
+ 
+ Don't be afraid to use the arrows on the Wheel to try combinations. You can always cancel your moves.
+ 
+ You can't do everything in a single game. Focus on 1 way to produce Food, 1 way to generate Happiness, and your odds of survival will improve.
+ 
+ Clicking Leisure or abandoning an Innovation triggers the passive effects of the symbols on the Wheel. Sometimes you'll want that, sometimes you won't.
+
+ The Combo list displays all the combos that you could possibly do with the symbols in your Roster. If you're stuck, try abandoning productions. You will need to produce a lot of different things to discover all the combos.<br/>
+ </htp>
+ 
+ </messages>
